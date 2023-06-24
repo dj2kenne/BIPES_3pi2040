@@ -6640,3 +6640,82 @@ Blockly.Python['threepi_bump_right_is_pressed'] = function(block) {
 	var code = 'threepi_bump_sensors.right_is_pressed()';
 	return [code, Blockly.Python.ORDER_NONE];
 };
+
+var add3piSimpleMotionDefinitions = function() {
+	Blockly.Python.definitions_['import_3pirobot'] = 'from pololu_3pi_2040_robot import robot as threepi_robot';
+	Blockly.Python.definitions_['make_3pimotors'] = 'threepi_motors = threepi_robot.Motors()';
+	Blockly.Python.definitions_['make_3piencoders'] = 'threepi_encoders = threepi_robot.Encoders()';
+	Blockly.Python.definitions_['threepi_simple_motion'] = `
+def threepi_simple_motion(speeds, target):
+	start_counts = threepi_encoders.get_counts()
+	signs = [1 if speed > 0 else -1 if speed < 0 else 0 for speed in speeds]
+	stopped = [speeds == 0 for speed in speeds]
+	threepi_motors.set_speeds(speeds[0], speeds[1])
+	while not all(stopped):
+		counts = threepi_encoders.get_counts()
+		for i in range(2):
+			if not stopped[i] and signs[i] * (counts[i] - start_counts[i] - target[i]) > 0:
+				stopped[i] = True
+				if i == 0:
+					threepi_motors.set_left_speed(0)
+				else:
+					threepi_motors.set_right_speed(0)
+	threepi_motors.off()
+	`;
+}
+
+Blockly.Python['threepi_simple_forward'] = function(block) {
+	var value_count = Blockly.Python.valueToCode(block, 'count', Blockly.Python.ORDER_ATOMIC);
+	add3piSimpleMotionDefinitions();
+	var code = 'threepi_simple_motion([1000, 1000], [' + (value_count * 100) + ', ' + (value_count * 100) + '])\n';
+	return code;
+};
+
+Blockly.Python['threepi_simple_backward'] = function(block) {
+	var value_count = Blockly.Python.valueToCode(block, 'count', Blockly.Python.ORDER_ATOMIC);
+	add3piSimpleMotionDefinitions();
+	var code = 'threepi_simple_motion([-1000, -1000], [' + (value_count * -100) + ', ' + (value_count * -100) + '])\n';
+	return code;
+};
+
+Blockly.Python['threepi_simple_rotate_left'] = function(block) {
+	var value_count = Blockly.Python.valueToCode(block, 'count', Blockly.Python.ORDER_ATOMIC);
+	add3piSimpleMotionDefinitions();
+	var code = 'threepi_simple_motion([-1000, 1000], [' + (value_count * -120) + ', ' + (value_count * 120) + '])\n';
+	return code;
+};
+
+Blockly.Python['threepi_simple_rotate_right'] = function(block) {
+	var value_count = Blockly.Python.valueToCode(block, 'count', Blockly.Python.ORDER_ATOMIC);
+	add3piSimpleMotionDefinitions();
+	var code = 'threepi_simple_motion([1000, -1000], [' + (value_count * 120) + ', ' + (value_count * -120) + '])\n';
+	return code;
+};
+
+Blockly.Python['threepi_simple_forward_left'] = function(block) {
+	var value_count = Blockly.Python.valueToCode(block, 'count', Blockly.Python.ORDER_ATOMIC);
+	add3piSimpleMotionDefinitions();
+	var code = 'threepi_simple_motion([600, 1500], [' + (value_count * 100) + ', ' + (value_count * 325) + '])\n';
+	return code;
+};
+
+Blockly.Python['threepi_simple_forward_right'] = function(block) {
+	var value_count = Blockly.Python.valueToCode(block, 'count', Blockly.Python.ORDER_ATOMIC);
+	add3piSimpleMotionDefinitions();
+	var code = 'threepi_simple_motion([1600, 600], [' + (value_count * 325) + ', ' + (value_count * 100) + '])\n';
+	return code;
+};
+
+Blockly.Python['threepi_simple_backward_left'] = function(block) {
+	var value_count = Blockly.Python.valueToCode(block, 'count', Blockly.Python.ORDER_ATOMIC);
+	add3piSimpleMotionDefinitions();
+	var code = 'threepi_simple_motion([-600, -1500], [' + (value_count * -100) + ', ' + (value_count * -325) + '])\n';
+	return code;
+};
+
+Blockly.Python['threepi_simple_backward_right'] = function(block) {
+	var value_count = Blockly.Python.valueToCode(block, 'count', Blockly.Python.ORDER_ATOMIC);
+	add3piSimpleMotionDefinitions();
+	var code = 'threepi_simple_motion([-1600, -600], [' + (value_count * -325) + ', ' + (value_count * -100) + '])\n';
+	return code;
+};

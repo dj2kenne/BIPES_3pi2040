@@ -471,6 +471,35 @@
 
   </category>
 
+  <category name="Simple">
+      <label text="Simple"></label>
+
+      <block type="threepi_simple_forward">
+        <value name="count"><shadow type="math_number"><field name="NUM">1</field></shadow></value>
+      </block>
+      <block type="threepi_simple_backward">
+        <value name="count"><shadow type="math_number"><field name="NUM">1</field></shadow></value>
+      </block>
+      <block type="threepi_simple_rotate_left">
+        <value name="count"><shadow type="math_number"><field name="NUM">1</field></shadow></value>
+      </block>
+      <block type="threepi_simple_rotate_right">
+        <value name="count"><shadow type="math_number"><field name="NUM">1</field></shadow></value>
+      </block>
+      <block type="threepi_simple_forward_left">
+        <value name="count"><shadow type="math_number"><field name="NUM">1</field></shadow></value>
+      </block>
+      <block type="threepi_simple_forward_right">
+        <value name="count"><shadow type="math_number"><field name="NUM">1</field></shadow></value>
+      </block>
+      <block type="threepi_simple_backward_left">
+        <value name="count"><shadow type="math_number"><field name="NUM">1</field></shadow></value>
+      </block>
+      <block type="threepi_simple_backward_right">
+        <value name="count"><shadow type="math_number"><field name="NUM">1</field></shadow></value>
+      </block>
+  </category>
+
   <category name="%{BKY_CAT_MACHINE}">
       <label text="%{BKY_CAT_MACHINE}"></label>
       <category name="CPU">

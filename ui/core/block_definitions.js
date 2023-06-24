@@ -12504,3 +12504,107 @@ Blockly.Blocks['threepi_bump_right_is_pressed'] = {
     this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks['threepi_simple_forward'] = {
+  init: function() {
+    this.appendValueInput("count")
+        .setCheck("Number")
+        .appendField(new Blockly.FieldImage("media/forward.png", 16, 16, { alt: "^", flipRtl: "FALSE" }));
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['threepi_simple_backward'] = {
+  init: function() {
+    this.appendValueInput("count")
+        .setCheck("Number")
+        .appendField(new Blockly.FieldImage("media/backward.png", 16, 16, { alt: "^", flipRtl: "FALSE" }));
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['threepi_simple_rotate_left'] = {
+  init: function() {
+    this.appendValueInput("count")
+        .setCheck("Number")
+        .appendField(new Blockly.FieldImage("media/rotate_left.png", 16, 16, { alt: "^", flipRtl: "FALSE" }));
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['threepi_simple_rotate_right'] = {
+  init: function() {
+    this.appendValueInput("count")
+        .setCheck("Number")
+        .appendField(new Blockly.FieldImage("media/rotate_right.png", 16, 16, { alt: "^", flipRtl: "FALSE" }));
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['threepi_simple_forward_left'] = {
+  init: function() {
+    this.appendValueInput("count")
+        .setCheck("Number")
+        .appendField(new Blockly.FieldImage("media/turn_left.png", 16, 16, { alt: "^", flipRtl: "FALSE" }));
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['threepi_simple_forward_right'] = {
+  init: function() {
+    this.appendValueInput("count")
+        .setCheck("Number")
+        .appendField(new Blockly.FieldImage("media/turn_right.png", 16, 16, { alt: "^", flipRtl: "FALSE" }));
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['threepi_simple_backward_left'] = {
+  init: function() {
+    this.appendValueInput("count")
+        .setCheck("Number")
+        .appendField(new Blockly.FieldImage("media/back_left.png", 16, 16, { alt: "^", flipRtl: "FALSE" }));
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['threepi_simple_backward_right'] = {
+  init: function() {
+    this.appendValueInput("count")
+        .setCheck("Number")
+        .appendField(new Blockly.FieldImage("media/back_right.png", 16, 16, { alt: "^", flipRtl: "FALSE" }));
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip("");
+    this.setHelpUrl("");
+  }
+};
